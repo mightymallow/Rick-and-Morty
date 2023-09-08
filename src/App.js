@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useEffect, useState } from "react"
 
-function App() {
+const App = () => {
+  const [episodes, setEpisodes] = useState([])
+
+  const fetchEpisodeData = () => {
+    fetch("https://rickandmortyapi.com/api/episode")
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        console.log("DATA", data)
+        setEpisodes(data.results)
+      })
+  }
+
+  useEffect(() => {
+    fetchEpisodeData()
+  }, [])
+  //console.log("EPISODES", episode)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {(
+        <ul>
+          {episodes.map(episode => (
+            <li key={episode.id}>{episode.name + " " + episode.episode}</li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
