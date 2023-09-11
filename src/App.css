@@ -1,5 +1,5 @@
 html { 
-  background: url(./images/background.jpg) no-repeat center center fixed; 
+  background: url(./images/bg/background.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -13,41 +13,42 @@ html {
   width: 40%;
 }
 
-.App {
-  text-align: center;
+.main-container {
+  margin-left: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card-container {
+  margin: 20px;
+  display: inline-block;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card {
+  border-radius: 25px !important;
+  border-bottom-right-radius: 100px !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.cardDescription {
+  height: 125px;
+}
+
+/* spinner */
+.loader-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100px;
 }
 
-.App-link {
-  color: #61dafb;
+.loader {
+  border: 8px solid #f3f3f3; 
+  border-top: 8px solid black;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
